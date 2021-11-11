@@ -1,0 +1,10 @@
+#Manually added
+catalog/
+.mule/**
+.mule/**/*
+.DS_Store
+src/main/api/.repository/
+src/main/api/.gitignore
+velocity.log
+target/
+.idea/

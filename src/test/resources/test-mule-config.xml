@@ -1,0 +1,17 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:pdfbox="http://www.mulesoft.org/schema/mule/pdfbox"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/pdfbox http://www.mulesoft.org/schema/mule/apache-pdfbox/current/pdfbox.xsd">
+
+    <flow name="pdfbox-conn-pocFlow">
+        <scheduler doc:name="Scheduler">
+            <scheduling-strategy >
+                <fixed-frequency timeUnit="DAYS"/>
+            </scheduling-strategy>
+        </scheduler>
+        <pdfbox:overlay-pdf doc:name="overlayPDF" outputFile='#["output.pdf"]' inputFile="input.pdf" overlayFile="overlay.pdf"/>
+        <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+    </flow>
+
+</mule>
